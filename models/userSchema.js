@@ -1,7 +1,7 @@
 const mongoose = require("../DbConnection/db");
 
 const userSchema = mongoose.Schema({
-    Name:{
+    name:{
         type:String,
         required:true
     },
@@ -16,14 +16,18 @@ const userSchema = mongoose.Schema({
         unique:true,
         min:5,
     },
-    type:{
+    accountType:{
         type:String,
         required:true
     },
-    contact:{
+    phoneNumber:{
         type:Number,
         required:true
-    }
+    },
+    Property: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'properties'
+    }]
 });
 
 const User = mongoose.model('users',userSchema);

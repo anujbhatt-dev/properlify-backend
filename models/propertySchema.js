@@ -1,9 +1,19 @@
 const mongoose = require("../DbConnection/db");
 
 const propertySchema = mongoose.Schema({
+     owner:{
+       type:mongoose.Schema.Types.ObjectId,
+       ref:'users'
+     },
      location: {
         type: String,
         required: true
+      },
+      longitude:{
+        type:String
+      },
+      latitude:{
+      type:String
       },
       price: {
         type: Number,
@@ -24,7 +34,7 @@ const propertySchema = mongoose.Schema({
       },
       Image:{
       type:String
-      }
+      } 
     });
 
 const Property = mongoose.model('properties',propertySchema);
