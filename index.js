@@ -10,7 +10,7 @@ const cors = require('cors');
 const path = require("path");
 const userRoute  = require('./routes/userRoute');
 const propertyRoute= require('./routes/propertyRoute');
-
+require("./DbConnection/db")
 
 // const chatRoute = require("./routes/chatRoute");
 //Middlewares
@@ -55,7 +55,7 @@ app.use('/property',propertyRoute);
 
  
 
-const PORT =5000;
+const PORT = 5000;
 server.listen(PORT,()=>{
     console.log(`Server listening on port ${PORT}`);
 })
